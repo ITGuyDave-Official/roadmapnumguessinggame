@@ -1,0 +1,10 @@
+from random import randint as r
+
+num_to_guess = r(1,100)
+
+user_guess = int(input("Guess a number from 1 to 100: "))
+
+while user_guess != num_to_guess:
+    user_guess = int(input("Guess a number from 1 to 100: "))
+
+print(f"Good job! It was {num_to_guess}!")
