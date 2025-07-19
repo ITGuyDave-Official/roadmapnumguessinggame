@@ -4,7 +4,32 @@ num_to_guess = r(1,100)
 
 user_guess = int(input("Guess a number from 1 to 100: "))
 
-while user_guess != num_to_guess:
-    user_guess = int(input("Guess a number from 1 to 100: "))
+print("Hello, weary traveller. Let's play a quick game while you rest.")
+print("I'm thinking of a number between 1 and 100.")
+print("Please choose a difficulty before we continue.")
 
-print(f"Good job! It was {num_to_guess}!")
+difficulty_level = input("Please choose between Easy (10 guesses), Medium (5 guesses), and Hard (3 guesses).").lower()
+
+guesses_left = 0
+
+if difficulty_level == "easy":
+    guesses_left = 10
+elif difficulty_level == "medium":
+    guesses_left = 5
+elif difficulty_level == "hard":
+    guesses_left = 3
+else: print("Oops! Something went wrong.")
+
+while guesses_left != 0:
+    user_guess = int(input("Guess a number from 1 to 100: "))
+    if user_guess == num_to_guess:
+        if guesses_left > 1:
+            print("Good job! You guessed it with {guesses_left} guesses to spare!")
+        else:
+            print("Good job! You guessed it with 1 guess to spare!")
+    elif user_guess > num_to_guess:
+        print("Oh! That's too high. Guess again.")
+        guesses_left -= 1
+    elif user_guess < num_to_guess:
+        print("Oh! That's too high. Guess again.")
+        guesses_left -= 1
